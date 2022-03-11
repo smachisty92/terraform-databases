@@ -13,15 +13,6 @@ data "terraform_remote_state" "vpc" {
   }
 }
 
-data "terraform_remote_state" "alb" {
-  backend = "s3"
-  config = {
-    bucket = "terraform62"
-    key = "mutable/alb/${var.ENV}/terraform.tfstate"
-    region = "us-east-1"
-  }
-}
-
 
 data "aws_secretsmanager_secret" "secret" {
 name = "secrets/roboshop/${var.ENV}"

@@ -1,20 +1,12 @@
-resource "aws_security_group" "allow-mongodb" {
-  name        = "mongodb-${var.ENV}-sg"
-  description =  "mongodb-${var.ENV}-sg"
+resource "aws_security_group" "allow-mysql" {
+  name        = "mysql-${var.ENV}-sg"
+  description =  "mysql-${var.ENV}-sg"
   vpc_id = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
-    description      = "SSH"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = [data.terraform_remote_state.vpc.outputs.VPC_CIDR, data.terraform_remote_state.vpc.outputs.DEFAULT_VPC_CIDR]
-  }
-
-  ingress {
     description      = "HTTP"
-    from_port        = 27017
-    to_port          = 27017
+    from_port        = 3306
+    to_port          = 3306
     protocol         = "tcp"
     cidr_blocks      = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
@@ -28,6 +20,6 @@ resource "aws_security_group" "allow-mongodb" {
   }
 
   tags = {
-    Name = "mongodb-${var.ENV}-sg"
+    Name = "mysql-${var.ENV}-sg"
   }
 }

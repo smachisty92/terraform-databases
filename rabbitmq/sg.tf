@@ -13,8 +13,8 @@ resource "aws_security_group" "allow-rabbitmq" {
 
   ingress {
     description      = "HTTP"
-    from_port        = 27017
-    to_port          = 27017
+    from_port        = 5672
+    to_port          = 5672
     protocol         = "tcp"
     cidr_blocks      = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
