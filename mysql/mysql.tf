@@ -20,3 +20,7 @@ resource "aws_db_subnet_group" "mysql" {
     Name = "My Subnet groups"
   }
 }
+
+output "mysql" {
+  value = aws_db_instance.default
+}

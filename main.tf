@@ -19,3 +19,7 @@ module "mysql" {
 #module "redis" {
 #  source = "./redis"
 #}
+
+output "mysql" {
+  value = module.mysql.mysql
+}
