@@ -4,14 +4,16 @@ module "mongodb" {
   MONGODB_INSTANCE_TYPE = var.MONGODB_INSTANCE_TYPE
 
 }
-
+module "rabbitmq" {
+  source = "./rabbitmq"
+  ENV = var.ENV
+  RABBITMQ_INSTANCE_TYPE = var.RABBITMQ_INSTANCE_TYPE
+}
 #module "mysql" {
 #  source = "./mysql"
 #}
 #
-#module "rabbitmq" {
-#  source = "./rabbitmq"
-#}
+
 #
 #module "redis" {
 #  source = "./redis"
