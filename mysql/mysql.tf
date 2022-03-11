@@ -21,7 +21,7 @@ resource "aws_db_subnet_group" "mysql" {
   }
 }
 
-output "mysql" {
-  value = aws_db_instance.default
-  sensitive = true
-}
+#output "mysql" {
+#  value = aws_db_instance.default
+#  sensitive = true
+#}
