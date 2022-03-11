@@ -14,7 +14,7 @@ resource "aws_db_instance" "default" {
 
 resource "aws_db_subnet_group" "mysql" {
   name = "mysql"
-  subnet_ids = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNETS_IDS
+  subnet_ids = data.terraform_remote_state.vpc.outputs.PRIVATE-SUBNETS_ID
 
   tags = {
     Name = "My Subnet groups"
