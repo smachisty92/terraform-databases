@@ -15,11 +15,12 @@ module "mysql" {
 }
 
 
-#
-#module "redis" {
-#  source = "./redis"
-#}
 
-output "mysql" {
-  value = nonsensitive(module.mysql.mysql)
+module "redis" {
+  source = "./redis"
+  ENV = var.ENV
+}
+
+output "redis" {
+  value = module.redis.redis
 }

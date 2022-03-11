@@ -13,3 +13,7 @@ resource "aws_elasticache_subnet_group" "subnet-group" {
   name       = "radis-${var.ENV}"
   subnet_ids = data.terraform_remote_state.vpc.outputs.PRIVATE-SUBNETS_ID
 }
+
+output "redis" {
+  value = aws_elasticache_cluster.redis
+}
